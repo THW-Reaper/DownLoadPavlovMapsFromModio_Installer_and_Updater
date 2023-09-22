@@ -47,7 +47,7 @@ int main()
     {
         char FilePathWexe[MAX_PATH]; //Gets Filepath
         GetModuleFileNameA(NULL, FilePathWexe, MAX_PATH);
-        string UpdaterFile = "Updater.exe";
+        string UpdaterFile = "PavlovMapsModioInstaller.exe";
         string FilePath = FilePathWexe;
         string::size_type substringtodelte = FilePath.find(UpdaterFile);
         FilePath.erase(substringtodelte, FilePath.length()); //Removes Extension
