@@ -13,16 +13,20 @@ using namespace std;
 int Install(string installdir)
 {
     
-        //sets command line strings
+        //sets command line strings, Way more vars than necissary
         installdir.assign(installdir + "\\PavlovModioDownloader");
         string createinstalldircmd = "md " + installdir;//Creates a folder at the specified directory 
         string rawurl = " https://github.com/RainOrigami/DownloadPavlovMapsFromModIo/releases/latest/download/DownloadPavlovMapsFromModIo.exe";
+        string updaterrawurl = " https://github.com/THW-Reaper/DownLoadPavlovMapsFromModio_Installer_and_Updater/releases/latest/download/Installer.exe";
         string installdir_and_url = installdir + rawurl;
+        string Updaterinstalldir_and_url = installdir + updaterrawurl;
         string installdircmd = "curl -O --output-dir " + installdir_and_url;
+        string installupdatercmd "curl -o --output-dir Updater.exe " + Updaterinstalldir_and_url;
         //commands
         system(createinstalldircmd.c_str());
         cout << "File Path Created, downloading file";
         system(installdircmd.c_str());
+        system(installupdatercmd.c_str());
         sleep_for(5s);
         system("start DownloadPavlovMapsFromModIo.exe"); //Boots the installed exe
         cout << "Download Successful!"<<endl;
