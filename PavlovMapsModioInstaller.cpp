@@ -15,8 +15,6 @@
  []comment on everything to document decently
  []Learn how to properly use/make headers
 
-#include <iostream> //Basic input/output
-#include <sys/stat.h> //file stuff iirc
 #include <stdlib.h>
 #include <string> //Strings
 #include <Windows.h> //System commands
@@ -24,6 +22,9 @@
 #include <chrono> //delay stuff
 #include <thread> 
 #pragma comment(lib, "urlmon.lib") //Need to remember what this does */
+
+#include <sys/stat.h> //file stuff, used in our case for checking if dotnet is installed
+#include <iostream> //Basic input/output
 #include <filesystem>
 #include "Installer.hpp"
 using namespace std; 
