@@ -15,20 +15,14 @@ int Install(string installdir)
     
         //sets command line strings
         installdir.assign(installdir + "\\PavlovModioDownloader");
-        string createinstalldircmd = "md " + installdir;//Creates a folder at the specified directory // link below this will need to be changed if you merge the PR
-        string rawurl = " https://raw.githubusercontent.com/THW-Reaper/DownloadPavlovMapsFromModIoWithInstaller/master/Program/Compiled/DownloadPavlovMapsFromModIo.exe";
+        string createinstalldircmd = "md " + installdir;//Creates a folder at the specified directory 
+        string rawurl = " https://github.com/RainOrigami/DownloadPavlovMapsFromModIo/releases/latest/download/DownloadPavlovMapsFromModIo.exe";
         string installdir_and_url = installdir + rawurl;
         string installdircmd = "curl -O --output-dir " + installdir_and_url;
         //commands
         system(createinstalldircmd.c_str());
         cout << "File Path Created, downloading file";
         system(installdircmd.c_str());
-        string exedir = "start " + installdir + "DownloadPavlovMapsFromModIo.exe";
-        rawurl.assign(" https://raw.githubusercontent.com/THW-Reaper/DownloadPavlovMapsFromModIoWithInstaller/master/Program/Compiled/version.txt");
-        installdir_and_url.assign(installdir + rawurl);
-        installdircmd.assign("curl -O --output-dir " + installdir_and_url);
-        system(installdircmd.c_str()); //Line below downloads the version txt
-        system("curl https://raw.githubusercontent.com/THW-Reaper/DownloadPavlovMapsFromModIoWithInstaller/main/Program/Compiled/version.txt -o UserVersion.txt");
         sleep_for(5s);
         system("start DownloadPavlovMapsFromModIo.exe"); //Boots the installed exe
         cout << "Download Successful!"<<endl;
@@ -69,4 +63,9 @@ int dotnet(bool valid)
                 cout << "Invalid Command!";
             }
             }
+}
+
+int Update()
+{
+    System("curl https://github.com/RainOrigami/DownloadPavlovMapsFromModIo/releases/latest/download/DownloadPavlovMapsFromModIo.exe")
 }

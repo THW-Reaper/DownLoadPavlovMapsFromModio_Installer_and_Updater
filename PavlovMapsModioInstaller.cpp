@@ -29,14 +29,22 @@
 using namespace std; 
 int main()
 {
-  bool installed false;
-  installed.exists() 
+  system("title PavlovModioDownloaderInstaller");
+  bool installed exists(DownloadPavlovMapsFromModIo.exe);
+  if (installed = false)
+  {
+    StartInstall();
+  } 
+  else
+  {
+    Update();
+  }
 }
 
 
 int StartInstall();
 {
-  system("title PavlovModioDownloaderInstaller");
+  
     // Path to Dotnet directory
     const char* dotnetdir = "C:/Program Files/dotnet";
     // Structure which would store the metadata
@@ -51,46 +59,13 @@ int StartInstall();
         cout <<"Welcome to the Pavlov Map Auto Downloader"<<endl<<"Please set your desired install path for Pavlov Map/Mod Downloader"<<endl;
         cin >> installdir; //sets target install dir
         cout <<"Attempting to install at "<<installdir<<endl;
-        Install(installdir)
+        Install(installdir) //Calls Install function in the Installer Header File
         exit(0);
     }
     else
-    dotnet(false)
-        {
-            
-            for (bool valid = false; valid = false;)
-            {
-                char installQuery;
-                cout << "Dotnet 6 Framwork not found, would you like to install it?[Y/N]";
-                cin >> installQuery;
-                if (installQuery == y)
-                {
-                    system("winget install Microsoft.DotNet.DesktopRuntime.6");
-                    valid = true;
-                }
-                else if (installQuery == Y)
-                {
-                    system("winget install Microsoft.DotNet.DesktopRuntime.6");
-                    valid = true;
-                }
-                else if (installQuery == n)
-                {
-                    cout << "Terminating program... I'll be back!";
-                    sleep_for(5s);
-                    exit(0);
-                }
-                else if (installQuery == N)
-                {
-                    cout << "Terminating program... I'll be back!";
-                    sleep_for(5s);
-                    exit(0);
-                }
-                else
-                {
-                    cout << "Invalid Command!";
-                }
-            }
-        }
+      {
+        dotnet(false) //Installs dotnet runtime
+      }
         
  
     return 0;
