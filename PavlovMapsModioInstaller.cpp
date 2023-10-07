@@ -26,24 +26,30 @@
 #include <sys/stat.h> //file stuff, used in our case for checking if dotnet is installed
 #include <iostream> //Basic input/output
 #include <filesystem>
-#include "Installer.hpp"
+#include "Installer&updater.hpp"
 using namespace std; 
+int StartInstall(bool begininstall);
+
 int main()
 {
   system("title PavlovModioDownloaderInstaller");
-  bool installed exists(DownloadPavlovMapsFromModIo.exe);
+  bool installed = std::filesystem::exists("DownloadPavlovMapsFromModIo.exe");
   if (installed = false)
   {
-    StartInstall();
+    StartInstall (true);
   } 
   else
   {
-    Update();
+      cout << "ModioDownloader found on your system, attempting to update" << endl;
+      bool status;
+      status = Update(true);
+      cout << "Update Successful:" << status;
+    
   }
 }
 
 
-int StartInstall();
+int StartInstall (bool begininstall)
 {
   
     // Path to Dotnet directory
@@ -60,12 +66,12 @@ int StartInstall();
         cout <<"Welcome to the Pavlov Map Auto Downloader"<<endl<<"Please set your desired install path for Pavlov Map/Mod Downloader"<<endl;
         cin >> installdir; //sets target install dir
         cout <<"Attempting to install at "<<installdir<<endl;
-        Install(installdir) //Calls Install function in the Installer Header File
+        Install(installdir); //Calls Install function in the Installer Header File
         exit(0);
     }
     else
       {
-        dotnet(false) //Installs dotnet runtime
+        dotnet(false); //Installs dotnet runtime
       }
         
  

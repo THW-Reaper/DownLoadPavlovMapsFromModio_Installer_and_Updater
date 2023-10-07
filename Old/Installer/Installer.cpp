@@ -30,7 +30,7 @@ int main()
         cin >> installdir; //sets target install dir
         cout <<"Attempting to install at "<<installdir<<endl;
         //sets command line strings
-        installdir.assign(installdir + "\PavlovModioDownloader");
+        installdir.assign(installdir + "\\PavlovModioDownloader");
         string createinstalldircmd = "md " + installdir; // link below this will need to be changed if you merge the PR
         string rawurl = " https://raw.githubusercontent.com/THW-Reaper/DownloadPavlovMapsFromModIoWithInstaller/master/Program/Compiled/DownloadPavlovMapsFromModIo.exe";
         string installdir_and_url = installdir + rawurl;

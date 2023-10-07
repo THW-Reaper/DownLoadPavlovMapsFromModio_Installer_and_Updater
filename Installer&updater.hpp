@@ -1,11 +1,12 @@
+/*We Could Just put these all as functions of the main file, but I wanted to learn how headers worked*/
 #include <iostream>
 #include <sys/stat.h>
 #include <stdlib.h>
 #include <string>
 #include <Windows.h>
 #include <direct.h>
-#include <chrono>
-#include <thread>
+#include <chrono> //Time
+#include <thread> //Threads
 #pragma comment(lib, "urlmon.lib")
 #pragma once
 using namespace std;
@@ -21,16 +22,16 @@ int Install(string installdir)
         string installdir_and_url = installdir + rawurl;
         string Updaterinstalldir_and_url = installdir + updaterrawurl;
         string installdircmd = "curl -O --output-dir " + installdir_and_url;
-        string installupdatercmd "curl -o --output-dir Updater.exe " + Updaterinstalldir_and_url;
+        string installupdatercmd = "curl -o --output-dir Updater.exe " + Updaterinstalldir_and_url;
         //commands
         system(createinstalldircmd.c_str());
         cout << "File Path Created, downloading file";
         system(installdircmd.c_str());
         system(installupdatercmd.c_str());
-        sleep_for(5s);
+        std::this_thread::sleep_for(5s);
         system("start DownloadPavlovMapsFromModIo.exe"); //Boots the installed exe
         cout << "Download Successful!"<<endl;
-        sleep_for(10s);
+        std::this_thread::sleep_for(10s);
         exit(0); //exits program after delay
 }
 int dotnet(bool valid)
@@ -53,13 +54,13 @@ int dotnet(bool valid)
             else if (installQuery == "n")
             {
                 cout << "Terminating program... I'll be back!";
-                sleep_for(5s);
+                std::this_thread::sleep_for(5s);
                 exit(0);
             }
             else if (installQuery == "N")
             {
                 cout << "Terminating program... I'll be back!";
-                sleep_for(5s);
+                std::this_thread::sleep_for(5s);
                 exit(0);
             }
             else
@@ -69,7 +70,10 @@ int dotnet(bool valid)
             }
 }
 
-int Update()
+int Update(bool)
 {
-    System("curl https://github.com/RainOrigami/DownloadPavlovMapsFromModIo/releases/latest/download/DownloadPavlovMapsFromModIo.exe")
+    bool success = 1;
+    system("curl https://github.com/RainOrigami/DownloadPavlovMapsFromModIo/releases/latest/download/DownloadPavlovMapsFromModIo.exe");
+    success = 0;
+    return success;
 }
