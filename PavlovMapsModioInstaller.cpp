@@ -26,7 +26,7 @@
 #include <sys/stat.h> //file stuff, used in our case for checking if dotnet is installed
 #include <iostream> //Basic input/output
 #include <filesystem>
-#include "Installer&updater.hpp"
+#include "InstallerAndupdater.hpp"
 using namespace std; 
 void StartInstall();
 
