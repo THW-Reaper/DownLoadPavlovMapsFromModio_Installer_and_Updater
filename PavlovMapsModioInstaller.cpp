@@ -28,7 +28,7 @@
 #include <filesystem>
 #include "Installer&updater.hpp"
 using namespace std; 
-int StartInstall(bool begininstall);
+void StartInstall();
 
 int main()
 {
@@ -36,20 +36,17 @@ int main()
   bool installed = std::filesystem::exists("DownloadPavlovMapsFromModIo.exe");
   if (installed = false)
   {
-    StartInstall (true);
+    StartInstall ();
   } 
   else
   {
       cout << "ModioDownloader found on your system, attempting to update" << endl;
-      bool status;
-      status = Update(true);
-      cout << "Update Successful:" << status;
     
   }
 }
 
 
-int StartInstall (bool begininstall)
+void StartInstall ()
 {
   
     // Path to Dotnet directory
@@ -71,7 +68,7 @@ int StartInstall (bool begininstall)
     }
     else
       {
-        dotnet(false); //Installs dotnet runtime
+        dotnet(); //Installs dotnet runtime
       }
         
  

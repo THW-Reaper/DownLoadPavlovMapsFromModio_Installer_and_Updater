@@ -14,7 +14,7 @@ using namespace std;
 int Install(string installdir)
 {
     
-        //sets command line strings, Way more vars than necissary
+        //sets command line strings, Way more vars than necessary
         installdir.assign(installdir + "\\PavlovModioDownloader");
         string createinstalldircmd = "md " + installdir;//Creates a folder at the specified directory 
         string rawurl = " https://github.com/RainOrigami/DownloadPavlovMapsFromModIo/releases/latest/download/DownloadPavlovMapsFromModIo.exe";
@@ -34,12 +34,12 @@ int Install(string installdir)
         std::this_thread::sleep_for(10s);
         exit(0); //exits program after delay
 }
-int dotnet(bool valid)
+void dotnet()
 {     
-        for (bool valid = false; valid = false;)
+        for (bool valid = false/*valid answer var*/; valid = false;)
             {
-            string installQuery;
-            cout << "Dotnet 6 Framwork not found, would you like to install it?[Y/N]";
+            string installQuery; //Need to switch this to char var at some point
+            cout << "DotNet 6 Framwork not found, would you like to install it?[Y/N]";
             cin >> installQuery;
             if (installQuery == "y")
             {
@@ -70,10 +70,7 @@ int dotnet(bool valid)
             }
 }
 
-int Update(bool)
+void Update()
 {
-    bool success = 1;
     system("curl https://github.com/RainOrigami/DownloadPavlovMapsFromModIo/releases/latest/download/DownloadPavlovMapsFromModIo.exe");
-    success = 0;
-    return success;
 }
