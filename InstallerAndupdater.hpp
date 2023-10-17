@@ -72,5 +72,6 @@ void dotnet()
 
 void Update()
 {
-    system("curl https://github.com/RainOrigami/DownloadPavlovMapsFromModIo/releases/latest/download/DownloadPavlovMapsFromModIo.exe");
+    system("curl -o https://github.com/RainOrigami/DownloadPavlovMapsFromModIo/releases/latest/download/DownloadPavlovMapsFromModIo.exe");
+    std::this_thread::sleep_for(5s);
 }

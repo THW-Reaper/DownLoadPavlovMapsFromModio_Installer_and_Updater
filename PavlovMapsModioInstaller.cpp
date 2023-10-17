@@ -41,7 +41,7 @@ int main()
   else
   {
       cout << "ModioDownloader found on your system, attempting to update" << endl;
-    
+      Update();
   }
 }
 
@@ -72,5 +72,5 @@ void StartInstall ()
       }
         
  
-    return 0;
+    return;
 }
