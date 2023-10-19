@@ -14,14 +14,7 @@
   Overall
  []comment on everything to document decently
  []Learn how to properly use/make headers
-
-#include <stdlib.h>
-#include <string> //Strings
-#include <Windows.h> //System commands
-#include <direct.h>
-#include <chrono> //delay stuff
-#include <thread> 
-#pragma comment(lib, "urlmon.lib") //Need to remember what this does */
+ */
 
 #include <sys/stat.h> //file stuff, used in our case for checking if dotnet is installed
 #include <iostream> //Basic input/output
@@ -81,7 +74,7 @@ void StartInstall ()
     return;
 }
 
-int Install(string installdir)
+void Install()
 {
         //sets command line strings, Way more vars than necessary
         installdir.assign(installdir + "\\PavlovModioDownloader");
@@ -106,38 +99,38 @@ int Install(string installdir)
 
 void dotnet()
 {     
-        for (bool valid = false; valid = false;)
-            {
-                char installQuery;
-                cout << "Dotnet 6 Framwork not found, would you like to install it?[Y/N]";
-                cin >> installQuery;
-                if (installQuery == 'y')
-                {
-                    system("winget install Microsoft.DotNet.DesktopRuntime.6");
-                    valid = true;
-                }
-                else if (installQuery == 'Y')
-                {
-                    system("winget install Microsoft.DotNet.DesktopRuntime.6");
-                    valid = true;
-                }
-                else if (installQuery == 'n')
-                {
-                    cout << "Terminating program... I'll be back!";
-                    sleep_for(5s);
-                    exit(0);
-                }
-                else if (installQuery == 'N')
-                {
-                    cout << "Terminating program... I'll be back!";
-                    sleep_for(5s);
-                    exit(0);
-                }
-                else
-                {
-                    cout << "Invalid Command!";
-                }
-            }
+    for (bool valid = false; valid = false;)
+    {
+      char installQuery;
+      cout << "Dotnet 6 Framwork not found, would you like to install it?[Y/N]";
+      cin >> installQuery;
+      if (installQuery == 'y')
+      {
+        system("winget install Microsoft.DotNet.DesktopRuntime.6");
+        valid = true;
+      }
+      else if (installQuery == 'Y')
+      {
+        system("winget install Microsoft.DotNet.DesktopRuntime.6");
+        valid = true;
+      }
+      else if (installQuery == 'n')
+      {
+        cout << "Terminating program... I'll be back!";
+        sleep_for(5s);
+        exit(0);
+      }
+      else if (installQuery == 'N')
+      {
+          cout << "Terminating program... I'll be back!";
+          sleep_for(5s);
+          exit(0);
+      }
+      else
+      {
+        cout << "Invalid Command!";
+      }
+    }
 }
 
 void Update()
